@@ -4,8 +4,8 @@ MAINTAINER Pixel GmbH <info@pixel.de>
 ENV LANG C.UTF-8
 
 RUN set -eux; \
-    apt-get update; \
-    apt-get install --yes --no-install-recommends \
+    apt-get update \
+    && apt-get update --yes --no-install-recommends \
     ; \
     rm -rf /var/lib/apt/lists/*
 
