@@ -5,7 +5,7 @@ ENV LANG C.UTF-8
 
 RUN set -eux; \
     apt-get update \
-    && apt-get update --yes --no-install-recommends \
+    && apt-get upgrade --yes --no-install-recommends \
     ; \
     rm -rf /var/lib/apt/lists/*
 
