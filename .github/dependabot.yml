@@ -1,8 +1,18 @@
 version: 2
+
 updates:
-  # Enable version updates for docker
-  - package-ecosystem: "docker"
+
+  - package-ecosystem: "github-actions"
     directory: "/"
-    # Check for updates once a week
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "docker"
+    directory: "/jdk11"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "docker"
+    directory: "/jdk15"
     schedule:
       interval: "daily"
