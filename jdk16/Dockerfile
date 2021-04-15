@@ -9,7 +9,7 @@ ENV LANG C.UTF-8
 RUN set -eux; \
     apt-get update \
     && apt-get upgrade --yes --no-install-recommends \
-    ; \
+    binutils fakeroot; \
     rm -rf /var/lib/apt/lists/*
 
 RUN set -eux; \
