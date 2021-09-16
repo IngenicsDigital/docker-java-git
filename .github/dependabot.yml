@@ -21,3 +21,8 @@ updates:
     directory: "/jdk16"
     schedule:
       interval: "daily"
+
+  - package-ecosystem: "docker"
+    directory: "/jdk17"
+    schedule:
+      interval: "daily"
