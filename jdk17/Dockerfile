@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-buster
+FROM openjdk:17.0.1-jdk-buster
 LABEL org.opencontainers.image.authors="Pixel GmbH <info@pixel.de>"
 LABEL org.opencontainers.image.url="https://github.com/PixelGmbH/docker-java-git"
 LABEL org.opencontainers.image.source="https://github.com/PixelGmbH/docker-java-git"
