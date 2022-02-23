@@ -1,4 +1,4 @@
-FROM openjdk:8u302-jdk
+FROM openjdk:8u322-jdk-bullseye
 LABEL org.opencontainers.image.authors="Pixel GmbH <info@pixel.de>"
 LABEL org.opencontainers.image.url="https://github.com/PixelGmbH/docker-java-git"
 LABEL org.opencontainers.image.source="https://github.com/PixelGmbH/docker-java-git"
