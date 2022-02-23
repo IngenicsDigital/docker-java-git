@@ -1,4 +1,4 @@
-FROM openjdk:11.0.12-jdk
+FROM openjdk:11.0.14-jdk-bullseye
 MAINTAINER Pixel GmbH <info@pixel.de>
 
 ENV LANG C.UTF-8
