@@ -1,5 +1,8 @@
 FROM openjdk:11.0.14-jdk-bullseye
-MAINTAINER Pixel GmbH <info@pixel.de>
+LABEL org.opencontainers.image.authors="Pixel GmbH <info@pixel.de>"
+LABEL org.opencontainers.image.url="https://github.com/PixelGmbH/docker-java-git"
+LABEL org.opencontainers.image.source="https://github.com/PixelGmbH/docker-java-git"
+LABEL org.opencontainers.image.licenses="Apache-2.0 Licence"
 
 ENV LANG C.UTF-8
 
