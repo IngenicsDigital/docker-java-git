@@ -15,40 +15,40 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        jdk: [8, 11, 15, 16, 17]
+        jdk: [ 8, 11, 15, 16, 17 ]
     outputs:
       jdk_version: ${{ steps.read_jdk_version.outputs.jdk_version }}
     steps:
-      -
-        name: Checkout
+
+      - name: Checkout
         uses: actions/checkout@v2
-      -
-        name: Read JDK version
+
+      - name: Read JDK version
         id: read_jdk_version
         run: |
           SDK_VER=$(head -1 jdk${{ matrix.jdk }}/Dockerfile | grep -Eo "[[:digit:]]+(\.[[:digit:]]+\.[[:digit:]]+)?") \
           && echo "::set-output name=jdk_version::$SDK_VER"
-      -
-        name: Login to DockerHub
+
+      - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
-      -
-        name: Build and push
+
+      - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
         with:
           context: jdk${{ matrix.jdk }}
           push: true
           tags: ${{ env.DOCKER_IMAGE }}:${{ matrix.jdk }}-jdk,${{ env.DOCKER_IMAGE }}:${{ steps.read_jdk_version.outputs.jdk_version }}-jdk
-      -
-        name: Tag latest
+
+      - name: Tag latest
         id: tag_latest
         if: ${{ matrix.jdk == env.DOCKER_LATEST_VERSION }}
         run: |
-            docker tag ${{ env.DOCKER_IMAGE }}:${{ env.DOCKER_LATEST_VERSION }}-jdk ${{ env.DOCKER_IMAGE }}:latest
-            docker push ${{ env.DOCKER_IMAGE }}:latest
-      -
-        name: Image digest
+          docker tag ${{ env.DOCKER_IMAGE }}:${{ env.DOCKER_LATEST_VERSION }}-jdk ${{ env.DOCKER_IMAGE }}:latest
+          docker push ${{ env.DOCKER_IMAGE }}:latest
+
+      - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
