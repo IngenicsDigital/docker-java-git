@@ -1,3 +1,7 @@
+This repository is not under active maintinance anymore.
+
+---
+
 # Docker Java & git
 
 This docker image intends to run a consistent java version with helpful tools, like `git` and `ssh`.
